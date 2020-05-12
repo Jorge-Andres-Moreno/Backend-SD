@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Jorge-Andres-Moreno/SD-back-end/issues"
   },
-  "homepage": "https://github.com/Jorge-Andres-Moreno/SD-back-end#readme"
+  "homepage": "https://github.com/Jorge-Andres-Moreno/SD-back-end#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
