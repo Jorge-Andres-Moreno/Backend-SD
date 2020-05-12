@@ -1,18 +1,17 @@
 var http = require('http');
 var express = require('express');
-var path = require('path');
 
 var port = process.env.PORT || 8080;
 
 var app = express();
 
 app.get('/users', function (req, res) {
-    console.log('GET="/example"');
-    res.status(200).send('success')
+    console.log('GET="/users"');
+    res.status(200).send({users:[{"id" : "1","nombre" : "Jorge"},{"id" : "2","nombre" : "Felipe"},{"id" : "3","nombre" : "Otro"}]})
 });
 
 app.post('/user/add', function (req, res) {
-    console.log('POST="/example"');
+    console.log('POST="/user/add"');
     res.status(200).send('success')
 });
 
