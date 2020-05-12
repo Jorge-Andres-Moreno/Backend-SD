@@ -1,0 +1,24 @@
+{
+  "name": "sd-back-end",
+  "version": "1.0.0",
+  "description": "Backend to infraestructure of SD project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jorge-Andres-Moreno/SD-back-end.git"
+  },
+  "keywords": [
+    "node",
+    "MongoDB",
+    "test"
+  ],
+  "author": "Jorge Moreno & Felipe Jurado",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jorge-Andres-Moreno/SD-back-end/issues"
+  },
+  "homepage": "https://github.com/Jorge-Andres-Moreno/SD-back-end#readme"
+}
