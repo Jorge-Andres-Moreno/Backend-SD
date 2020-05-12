@@ -1,15 +1,17 @@
 // Get our dependencies
 var express = require('express');
 var app = express();
-var mysql = require("mysql");
+//var mysql = require("mysql");
+
+var port = process.env.PORT || 8080;
 
 const con = mysql.createConnection({
 
-  host: process.env.ENDPOINT,
-  user: 'root',
-  password: 'password',
-  database: 'dbAIK',
-  port: '3306'
+  //host: process.env.ENDPOINT,
+  host: "192.168.56.3",
+  user: "root",
+  password: "password",
+  database: "mydb"
 });
 
 //Testing endpoint
@@ -76,5 +78,5 @@ app.get('/redsocial', function(req, res){
 
 console.log("server listening through port: "+process.env.PORT);
 // Launch our API Server and have it listen on port 3000.
-app.listen(process.env.PORT || 3000);
+app.listen(port);
 module.exports = app;
