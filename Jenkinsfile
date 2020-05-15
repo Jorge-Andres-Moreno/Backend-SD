@@ -8,16 +8,10 @@ node {
         }
     }
 
-    stage('runing'){
-        def node = 'NodeJS'
-        nodejs(node){
-            sh 'nodejs index.js'
-        }
-    }
-    
     stage('test'){
         def node = 'NodeJS'
         nodejs(node){
+            sh 'node index.js &'
             sh 'npm test'
         }
     }
