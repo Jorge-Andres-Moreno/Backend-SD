@@ -20,7 +20,7 @@ con.connect(function (err) {
 });
 
 //Define PORT
-var port = process.env.PORT || 8081;
+var port = process.env.PORT_BACKEND || 8080;
 
 //Initialize express
 var app = express();
