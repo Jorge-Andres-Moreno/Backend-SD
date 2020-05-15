@@ -28,18 +28,18 @@ describe("Database connection Test", () => {
 
 describe("Endpoints Tests", () => {
   it("Consume GET Service with save query for next test for /users endpoint", async () => {
-    const response = await agent.get("http://localhost:8080/users/");
+    const response = await agent.get("http://localhost:8081/users/");
     expect(response.status).to.equal(statusCode.OK);
     expect(response.body != undefined);
   });
 
   it("Consume POST Service with query parameters save of before request for /user/add endpoint", async () => {
     const response1 = await agent
-      .post("http://localhost:8080/user/add/")
+      .post("http://localhost:8081/user/add/")
       .send({ id: "0", nombre: "test" });
     expect(response1.status).to.equal(statusCode.OK);
 
-    const response = await agent.get("http://localhost:8080/users/");
+    const response = await agent.get("http://localhost:8081/users/");
     var tmp = response.body.users.pop();
     expect(tmp.id == "0" && tmp.nombre == "test");
   });
