@@ -61,7 +61,7 @@ app.post("/users/update", function (req, res) {
 });
 
 app.delete("/users/delete", function (req, res) {
-  console.log('POST="/user/delete"');
+  console.log('POST="/user/delete"');  
   var sql =
     "DELETE FROM users WHERE id='" +req.body.id +"';";
   con.query(sql, function (err, result) {
