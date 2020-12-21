@@ -6,12 +6,13 @@ var express = require("express");
 var mysql = require("mysql");
 var bodyParser = require("body-parser");
 
+
 //Conection BD
 var con = mysql.createConnection({
-  host: process.env.DB_HOST || "",
-  user: process.env.DB_USER || "",
-  password: process.env.DB_PASS || "*",
-  database: process.env.DB_NAME || "",
+  host: process.env.DB_HOST || "localhost",
+  user: process.env.DB_USER || "test",
+  password: process.env.DB_PASS || "password",
+  database: process.env.DB_NAME || "customers",
 });
 
 con.connect(function (err) {
@@ -29,9 +30,9 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get("/users", function (req, res) {
+app.get("/users/list", function (req, res) {
   console.log('GET="/users"');
-  con.query("SELECT * FROM users", function (err, result) {
+  con.query("SELECT * FROM users; ", function (err, result) {
     if (err) throw err;
     var data = { users: [] };
     data.users = result;
@@ -39,17 +40,33 @@ app.get("/users", function (req, res) {
   });
 });
 
-app.post("/user/add", function (req, res) {
+app.put("/users/add", function (req, res) {
   console.log('POST="/user/add"');
   var sql =
-    "INSERT INTO users VALUES ('" +
-    req.body.id +
-    "', '" +
-    req.body.nombre +
-    "')";
+    "INSERT INTO users VALUES (uuid(), '" + req.body.nombre + "');";
   con.query(sql, function (err, result) {
     if (err) throw err;
-    res.status(200).send("success");
+    res.status(200).send({msg : "success"});
+  });
+});
+
+app.post("/users/update", function (req, res) {
+  console.log('POST="/user/update"');
+  var sql =
+    "UPDATE users SET nombre='" +req.body.nombre +"' WHERE id='"+req.body.id+"';";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    res.status(200).send({msg : "success"});
+  });
+});
+
+app.delete("/users/delete", function (req, res) {
+  console.log('POST="/user/delete"');
+  var sql =
+    "DELETE FROM users WHERE id='" +req.body.id +"';";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    res.status(200).send({msg : "success"});
   });
 });
 
