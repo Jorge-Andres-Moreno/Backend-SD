@@ -25,7 +25,7 @@ con.connect(function (err) {
     console.log("Table deleted");
   });
   
-  var sql = "CREATE TABLE users (nombre VARCHAR(2550), id VARCHAR(2550))";
+  var sql = "CREATE TABLE users ( id VARCHAR(2550), nombre VARCHAR(2550) )";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table created");
