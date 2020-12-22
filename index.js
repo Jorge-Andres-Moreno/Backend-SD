@@ -6,13 +6,12 @@ var express = require("express");
 var mysql = require("mysql");
 var bodyParser = require("body-parser");
 
-
 //Conection BD
 var con = mysql.createConnection({
-  host: process.env.DB_HOST || "192.168.56.4",
+  host: process.env.DB_HOST || "database-talentum.ddns.net",
   user: process.env.DB_USER || "root",
   password: process.env.DB_PASS || "password",
-  database: process.env.DB_NAME || "mydb",
+  database: process.env.DB_NAME || "test"
 });
 
 con.connect(function (err) {
