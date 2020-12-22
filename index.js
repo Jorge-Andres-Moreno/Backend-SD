@@ -41,7 +41,7 @@ app.get("/users/list", function (req, res) {
 });
 
 app.put("/users/add", function (req, res) {
-  console.log('POST="/user/add"');
+  console.log('PUT="/user/add"');
   var sql =
     "INSERT INTO users VALUES (uuid(), '" + req.body.nombre + "');";
   con.query(sql, function (err, result) {
@@ -61,7 +61,7 @@ app.post("/users/update", function (req, res) {
 });
 
 app.delete("/users/delete", function (req, res) {
-  console.log('POST="/user/delete"');  
+  console.log('DELETE="/user/delete"');  
   var sql =
     "DELETE FROM users WHERE id='" +req.body.id +"';";
   con.query(sql, function (err, result) {
