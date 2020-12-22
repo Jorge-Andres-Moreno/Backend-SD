@@ -9,10 +9,10 @@ var bodyParser = require("body-parser");
 
 //Conection BD
 var con = mysql.createConnection({
-  host: process.env.DB_HOST || "localhost",
-  user: process.env.DB_USER || "test",
+  host: process.env.DB_HOST || "192.168.56.4",
+  user: process.env.DB_USER || "root",
   password: process.env.DB_PASS || "password",
-  database: process.env.DB_NAME || "customers",
+  database: process.env.DB_NAME || "mydb",
 });
 
 con.connect(function (err) {
