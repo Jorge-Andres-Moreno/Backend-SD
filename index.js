@@ -16,8 +16,20 @@ var con = mysql.createConnection({
 });
 
 con.connect(function (err) {
-  if (err) throw err;
+ if (err) throw err;
   console.log("Connected!");
+  
+  var sql = "DROP TABLE users";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Table deleted");
+  });
+  
+  var sql = "CREATE TABLE users (nombre VARCHAR(2550), id VARCHAR(2550))";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Table created");
+  });
 });
 
 //Define PORT
