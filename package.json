@@ -30,7 +30,7 @@
     "chai": "^4.2.0",
     "http-status-code": "^2.1.0",
     "http-status-codes": "^1.4.0",
-    "mocha": "^7.1.2",
+    "mocha": "^10.1.0",
     "request": "^2.88.2",
     "superagent": "^5.2.2"
   }
